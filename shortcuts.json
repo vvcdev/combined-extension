@@ -1,0 +1,56 @@
+{
+  "shortcuts": [
+    {
+      "shortcut": "@vvc",
+      "url": "https://mail.google.com"
+    },
+    {
+      "shortcut": "@scratch",
+      "url": "https://scratch.mit.edu/projects/editor/"
+    },
+    {
+      "shortcut": "@clever",
+      "url": "https://clever.com/in/jerseycity/student/portal"
+    },
+    {
+      "shortcut": "@evil",
+      "url": "https://mail.google.com/mail/u/2/#inbox"
+    },
+    {
+      "shortcut": "@hs",
+      "url": "https://mail.google.com/mail/u/5/#inbox"
+    },
+    {
+      "shortcut": "@over",
+      "url": "https://mail.google.com/mail/u/1/#inbox"
+    },
+    {
+      "shortcut": "@imp",   
+      "url": "https://mail.google.com/mail/u/6/"
+    },
+    {
+      "shortcut": "@n",   
+      "url": "https://www.notion.so/49c72b0745d94acd978523eb66a4d6e6"
+    },
+    {
+      "shortcut": "todo.new",   
+      "url": "https://todoist.new"
+    },
+    {
+      "shortcut": "event.new",   
+      "url": "https://calendar.notion.so/event/create?env=production&from=homeCreateEvent&notionDeviceId=8a11985626a14b7dad583bf5904f766c&notionAnalyticsSessionId=b94f1718-d1b7-4d06-9a21-588f9d79876d"
+    },
+    {
+      "shortcut": "@later",   
+      "url": "https://www.youtube.com/playlist?list=WL"
+    },
+    {
+      "shortcut": "@tools",   
+      "url": "https://drive.google.com/drive/u/0/folders/1S0pnQL22Cq3-dNaTAYOWRggpBolmffyj"
+    },
+    {
+      "shortcut": "@243",
+      "url": "https://mail.google.com/mail/u/3/#inbox"
+    }
+  ]
+}
