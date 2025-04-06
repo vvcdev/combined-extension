@@ -49,6 +49,10 @@
       "url": "https://drive.google.com/drive/u/0/folders/1S0pnQL22Cq3-dNaTAYOWRggpBolmffyj"
     },
     {
+      "shortcut": "@voice",   
+      "url": "https://voice.google.com/u/0/calls"
+    },
+    {
       "shortcut": "@243",
       "url": "https://mail.google.com/mail/u/3/#inbox"
     }
