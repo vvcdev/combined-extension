@@ -49,8 +49,12 @@
       "url": "https://drive.google.com/drive/u/0/folders/1S0pnQL22Cq3-dNaTAYOWRggpBolmffyj"
     },
     {
-      "shortcut": "@voice",   
+      "shortcut": "@calls",   
       "url": "https://voice.google.com/u/0/calls"
+    },
+    {
+      "shortcut": "@prompts",   
+      "url": "https://www.notion.so/Prompts-1cf3375920d680848e13de7fa4f8b72b"
     },
     {
       "shortcut": "@243",
@@ -58,3 +62,5 @@
     }
   ]
 }
+
+
