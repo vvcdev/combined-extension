@@ -57,10 +57,13 @@
       "url": "https://www.notion.so/Prompts-1cf3375920d680848e13de7fa4f8b72b"
     },
     {
+      "shortcut": "@git",   
+      "url": "https://github.com/vvcdev?tab=repositories"
+    },
+    {
       "shortcut": "@243",
       "url": "https://mail.google.com/mail/u/3/#inbox"
     }
   ]
 }
-
 
