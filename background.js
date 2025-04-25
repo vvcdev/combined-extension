@@ -29,6 +29,22 @@ fetch(chrome.runtime.getURL('shortcuts.json'))
     console.error('Failed to load shortcuts:', error);
   });
 
+// New helper functions for URL transformations
+function transformUrl(url) {
+  // Handle Notion URLs
+  if (url.match(/^https?:\/\/(www\.)?notion\.so\//)) {
+    return url.replace(/^https?:\/\/(www\.)?notion\.so\//, 'notion://');
+  }
+  
+  // Handle Todoist task URLs
+  const todoistMatch = url.match(/^https?:\/\/app\.todoist\.com\/app\/task\/([a-zA-Z0-9]+)/);
+  if (todoistMatch && todoistMatch[1]) {
+    return `todoist://task?id=${todoistMatch[1]}`;
+  }
+  
+  return url;
+}
+
 function setupShortcutsListeners() {
   // Handle omnibox input - this is the address bar with the @ keyword
   chrome.omnibox.onInputEntered.addListener(function(text) {
@@ -72,20 +88,23 @@ function setupShortcutsListeners() {
 function handleShortcut(text) {
   // Check for exact match (without @)
   if (shortcutsWithoutAtMap.has(text)) {
-    chrome.tabs.update({ url: shortcutsWithoutAtMap.get(text) });
+    const targetUrl = transformUrl(shortcutsWithoutAtMap.get(text));
+    chrome.tabs.update({ url: targetUrl });
     return true;
   }
   
   // Check for exact match (with @)
   const withAt = `@${text}`;
   if (shortcutsMap.has(withAt)) {
-    chrome.tabs.update({ url: shortcutsMap.get(withAt) });
+    const targetUrl = transformUrl(shortcutsMap.get(withAt));
+    chrome.tabs.update({ url: targetUrl });
     return true;
   }
   
   // Default case
   if (defaultUrl) {
-    chrome.tabs.update({ url: defaultUrl });
+    const targetUrl = transformUrl(defaultUrl);
+    chrome.tabs.update({ url: targetUrl });
     return true;
   }
   
@@ -100,6 +119,16 @@ function checkAddressBarShortcut(url, tabId) {
     const urlObj = new URL(url);
     const hostname = urlObj.hostname;
     
+    // Check for Notion or Todoist URLs and transform them directly
+    if ((hostname === 'notion.so' || hostname === 'www.notion.so') ||
+        (hostname === 'app.todoist.com' && urlObj.pathname.includes('/app/task/'))) {
+      const transformedUrl = transformUrl(url);
+      if (transformedUrl !== url) {
+        chrome.tabs.update(tabId, { url: transformedUrl });
+        return true;
+      }
+    }
+    
     // Fast path: Check for search engine queries first
     if ((hostname.includes('google.com') && urlObj.pathname.includes('/search')) ||
         (hostname.includes('bing.com') && urlObj.pathname.includes('/search')) ||
@@ -111,7 +140,8 @@ function checkAddressBarShortcut(url, tabId) {
         
         // Direct map lookup is faster than looping
         if (shortcutsMap.has(trimmedQuery)) {
-          chrome.tabs.update(tabId, { url: shortcutsMap.get(trimmedQuery) });
+          const targetUrl = transformUrl(shortcutsMap.get(trimmedQuery));
+          chrome.tabs.update(tabId, { url: targetUrl });
           return true;
         }
       }
@@ -119,7 +149,8 @@ function checkAddressBarShortcut(url, tabId) {
     
     // Check for @ alone (default case)
     if (url === '@' || url === 'http://@/' || url === 'https://@/') {
-      chrome.tabs.update(tabId, { url: defaultUrl });
+      const targetUrl = transformUrl(defaultUrl);
+      chrome.tabs.update(tabId, { url: targetUrl });
       return true;
     }
     
@@ -128,7 +159,8 @@ function checkAddressBarShortcut(url, tabId) {
     
     // Check direct matches with the shortcut map
     if (shortcutsMap.has(decodedUrl)) {
-      chrome.tabs.update(tabId, { url: shortcutsMap.get(decodedUrl) });
+      const targetUrl = transformUrl(shortcutsMap.get(decodedUrl));
+      chrome.tabs.update(tabId, { url: targetUrl });
       return true;
     }
     
@@ -141,7 +173,8 @@ function checkAddressBarShortcut(url, tabId) {
           decodedUrl === `https://${shortcut}/` ||
           decodedUrl.endsWith(`/${shortcut}`) ||
           decodedUrl.endsWith(`/${shortcut}/`)) {
-        chrome.tabs.update(tabId, { url: targetUrl });
+        const transformedUrl = transformUrl(targetUrl);
+        chrome.tabs.update(tabId, { url: transformedUrl });
         return true;
       }
     }
