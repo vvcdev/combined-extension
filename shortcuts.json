@@ -29,14 +29,6 @@
       "url": "https://mail.google.com/mail/u/6/"
     },
     {
-      "shortcut": "@n",   
-      "url": "https://www.notion.so/Home-1d03375920d68019bf08eea9df83071c"
-    },
-    {
-      "shortcut": "todo.new",   
-      "url": "https://todoist.new"
-    },
-    {
       "shortcut": "event.new",   
       "url": "https://calendar.notion.so/event/create?env=production&from=homeCreateEvent&notionDeviceId=8a11985626a14b7dad583bf5904f766c&notionAnalyticsSessionId=b94f1718-d1b7-4d06-9a21-588f9d79876d"
     },
@@ -53,8 +45,8 @@
       "url": "https://voice.google.com/u/0/calls"
     },
     {
-      "shortcut": "@prompts",   
-      "url": "https://www.notion.so/Prompts-1cf3375920d680848e13de7fa4f8b72b"
+      "shortcut": "@keep",   
+      "url": "https://keep.google.com"
     },
     {
       "shortcut": "@git",   
@@ -66,4 +58,3 @@
     }
   ]
 }
-
