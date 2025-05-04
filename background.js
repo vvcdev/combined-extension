@@ -32,9 +32,9 @@ fetch(chrome.runtime.getURL('shortcuts.json'))
 // New helper functions for URL transformations
 function transformUrl(url) {
   // Handle Notion URLs
-  if (url.match(/^https?:\/\/(www\.)?notion\.so\//)) {
-    return url.replace(/^https?:\/\/(www\.)?notion\.so\//, 'notion://');
-  }
+  // if (url.match(/^https?:\/\/(www\.)?notion\.so\//)) {
+  //   return url.replace(/^https?:\/\/(www\.)?notion\.so\//, 'notion://');
+  // }
   
   // Handle Todoist task URLs
   const todoistMatch = url.match(/^https?:\/\/app\.todoist\.com\/app\/task\/([a-zA-Z0-9]+)/);
