@@ -53,8 +53,13 @@
       "url": "https://github.com/vvcdev?tab=repositories"
     },
     {
+      "shortcut": "@try",   
+      "url": "https://keep.google.com/u/0/#label/Try%20Out"
+    },
+    {
       "shortcut": "@243",
       "url": "https://mail.google.com/mail/u/3/#inbox"
     }
   ]
 }
+
