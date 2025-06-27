@@ -331,6 +331,11 @@ chrome.commands.onCommand.addListener(function(command) {
   else if (command === "open-drive-account-3") {
     chrome.tabs.create({ url: "https://drive.google.com/drive/u/3/recent" });
   }
+  
+  // Calendar shortcut command
+  else if (command === "open-calendar") {
+    chrome.tabs.create({ url: "https://calendar.notion.so/" });
+  }
 });
 
 // Initialize when the extension starts
