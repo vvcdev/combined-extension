@@ -29,10 +29,6 @@
       "url": "https://mail.google.com/mail/u/6/"
     },
     {
-      "shortcut": "event.new",   
-      "url": "https://calendar.notion.so/event/create?env=production&from=homeCreateEvent&notionDeviceId=8a11985626a14b7dad583bf5904f766c&notionAnalyticsSessionId=b94f1718-d1b7-4d06-9a21-588f9d79876d"
-    },
-    {
       "shortcut": "@later",   
       "url": "https://www.youtube.com/playlist?list=WL"
     },
